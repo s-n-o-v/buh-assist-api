@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Filters\TaxOfficeFilter;
-use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TaxOffice\StorePostRequest;
 use App\Http\Requests\TaxOffice\UpdatePostRequest;
-use App\Http\Resources\TaxOfficeResource;
+use App\Http\Resources\TaxOffice\TaxOfficeResource;
 use App\Models\TaxOffice;
+use App\Mutations\BaseSort;
 use Illuminate\Http\Request;
 
 class TaxOfficeController extends Controller
@@ -19,23 +19,13 @@ class TaxOfficeController extends Controller
     public function index(Request $request)
     {
         $query = TaxOffice::query();
-        // Применить фильтр
+        // apply filters
         $query = (new TaxOfficeFilter($request))->apply($query);
-
-        // Сортировка
-        if ($sort = $request->input('sort')) {
-            $direction = str_starts_with($sort, '-') ? 'desc' : 'asc';
-            $column = ltrim($sort, '-');
-
-            if (Schema::hasColumn('posts', $column)) {
-                $query->orderBy($column, $direction);
-            }
-        }
-
-        // Пагинация
-        $perPage = $request->input('per_page', 15);
+        // sort
+        $query = (new BaseSort($request, 'tax_offices'))->apply($query);
+        // paginate
+        $perPage = $request->input('limit', 15);
         return TaxOfficeResource::collection($query->paginate($perPage));
-//        return response()->json($query->paginate($perPage));
     }
 
     /**

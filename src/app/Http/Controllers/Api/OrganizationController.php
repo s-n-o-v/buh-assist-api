@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\OrganizationResource;
+use App\Http\Resources\Organization\OrganizationResource;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 

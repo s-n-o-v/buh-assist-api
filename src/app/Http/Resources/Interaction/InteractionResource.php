@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Interaction;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TaxOfficeResource extends JsonResource
+class InteractionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,9 @@ class TaxOfficeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'organization' => OrganizationResource::make($this->organization),
+            'type' => $this->type,
+            'description' => $this->description,
+            'interacted_at' => $this->interacted_at,
         ];
     }
 }

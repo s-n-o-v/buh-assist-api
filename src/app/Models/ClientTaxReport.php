@@ -20,7 +20,7 @@ class ClientTaxReport extends Model
 
     public function client()
     {
-        return $this->belongsToMany(ClientTax::class);
+        return $this->belongsTo(ClientTax::class);
     }
 
 }

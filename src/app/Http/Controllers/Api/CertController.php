@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CertResource;
+use App\Http\Resources\Cert\CertResource;
 use App\Models\Cert;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class CertController extends Controller
 {
