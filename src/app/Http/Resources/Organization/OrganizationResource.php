@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Organization;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CertResource extends JsonResource
+class OrganizationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,7 @@ class CertResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'valid_to' => $this->valid_to,
-            'client' => ClientInfoResource::make($this->client),
+            'name' => $this->name,
         ];
     }
 }

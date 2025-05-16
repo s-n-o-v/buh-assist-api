@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Tag;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ClientInfoResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

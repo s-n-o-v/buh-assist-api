@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Filters\TaxOfficeFilter;
-use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TaxOffice\StorePostRequest;
 use App\Http\Requests\TaxOffice\UpdatePostRequest;
-use App\Http\Resources\TaxOfficeResource;
+use App\Http\Resources\TaxOffice\TaxOfficeResource;
 use App\Models\TaxOffice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class TaxOfficeController extends Controller
 {
