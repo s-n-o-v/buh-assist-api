@@ -21,6 +21,7 @@ class TaxReport extends Model
 
     public function taxOffice()
     {
-        return $this->belongsToMany(TaxOffice::class);
+        return $this->hasMany(TaxOffice::class, 'id', 'tax_office_id');
+//        return $this->belongsToMany(TaxOffice::class);
     }
 }

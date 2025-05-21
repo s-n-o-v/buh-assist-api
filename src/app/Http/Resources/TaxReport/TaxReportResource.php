@@ -17,11 +17,12 @@ class TaxReportResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
             'fine' => $this->fine,
             'is_periodic' => $this->is_periodic,
             'report_date' => $this->report_date,
             'every_month' => $this->every_month,
-            'tax_office' => TaxOfficeResource::make($this->tax_office_id),
+            'tax_office' => TaxOfficeResource::collection($this->taxOffice),
         ];
     }
 }

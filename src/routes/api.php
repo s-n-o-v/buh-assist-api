@@ -23,11 +23,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('clients', ClientController::class);
     Route::apiResource('certs', CertController::class);
     Route::apiResource('tags', TagController::class);
-    Route::apiResource('tax-offices', TaxOfficeController::class);
     Route::apiResource('organizations', OrganizationController::class);
+    Route::apiResource('tax-offices', TaxOfficeController::class);
+    Route::apiResource('tax-reports', TaxReportController::class);
     Route::apiResource('notes', NoteController::class);
     Route::apiResource('interactions', InteractionController::class);
-    Route::apiResource('tax-reports', TaxReportController::class);
     Route::apiResource('client-taxes', ClientTax::class);
     Route::apiResource('client-tax-reports', ClientTaxReportFilter::class);
 });
