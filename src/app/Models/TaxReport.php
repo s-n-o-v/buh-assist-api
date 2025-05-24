@@ -12,16 +12,15 @@ class TaxReport extends Model
 
     protected $fillable = [
         'name',
-        'tax_office_id',
+        'organization_id',
         'fine',
         'is_periodic',
         'report_date',
         'every_month',
     ];
 
-    public function taxOffice()
+    public function organization()
     {
-        return $this->hasMany(TaxOffice::class, 'id', 'tax_office_id');
-//        return $this->belongsToMany(TaxOffice::class);
+        return $this->hasOne(Organization::class, 'id', 'organization_id');
     }
 }
