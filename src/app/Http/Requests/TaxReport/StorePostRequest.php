@@ -6,13 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -23,11 +16,11 @@ class StorePostRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'tax_office_id' => 'required|numeric|exists:tax_reports,id',
-            'fine' => 'required|decimal:2,2',
+            'organization_id' => 'required|numeric|exists:organizations,id',
+            'fine' => 'required',
             'is_periodic' => 'required|boolean',
             'report_date' => 'nullable|date',
-            'every_month' => 'required|numeric',
+            'every_month' => 'nullable|numeric',
         ];
     }
 }
